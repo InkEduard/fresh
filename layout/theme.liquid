@@ -37,11 +37,7 @@
     <!-- shopify/apps -->
     {{ content_for_header }}
 
-    {% liquid
-      # Always add entrypoint below content_for_header
-      render 'adastra' with 'base.css'
-      render 'adastra' with 'index.js'
-    %}
+    {%- render 'adastra' with 'base.css' -%}
   </head>
   <body>
     <main
@@ -49,6 +45,8 @@
       tabindex="-1">
       {{ content_for_layout }}
     </main>
+
+    {%- render 'adastra' with 'index.ts' -%}
 
     <script>
       window.shopUrl = '{{ request.origin }}'
